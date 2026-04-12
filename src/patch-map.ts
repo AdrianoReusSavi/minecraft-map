@@ -108,7 +108,7 @@ export async function patchMap(realmName: string): Promise<void> {
   const htmlPath = join(config.outputPath, "index.html");
   let html = await readFile(htmlPath, "utf-8");
   html = html.replace(/<title>[^<]*<\/title>/, `<title>Realms Map</title>`);
-  const favicon = `<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F5FA;</text></svg>">`;
+  const favicon = `<link rel="icon" href="favicon.png">`;
   html = html.replace("</head>", `${favicon}\n</head>`);
   html += [
     `<style>${CUSTOM_CSS}</style>`,

@@ -113,6 +113,9 @@ jobs:
           MINECRAFT_JAR: /tmp/minecraft.jar
         run: npm run update
 
+      - name: Copy favicon
+        run: cp public/favicon.png output/favicon.png
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

@@ -13,6 +13,14 @@
 
 ---
 
+## Overview
+
+<!-- TODO: Replace with actual screenshot -->
+
+| Map |
+|-----|
+| ![Map](docs/map.png) |
+
 ## About
 
 Realms Map automatically downloads your Minecraft Java Realms backup, renders an interactive 2D map using [uNmINeD](https://unmined.net/), and deploys it to GitHub Pages. Updated every 12 hours via GitHub Actions.
