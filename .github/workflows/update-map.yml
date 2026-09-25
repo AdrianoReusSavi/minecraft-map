@@ -2,7 +2,7 @@ name: Update Map
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 6 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -59,24 +59,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: output
-          key: render-v2-${{ github.run_id }}
-          restore-keys: render-v2-
-
-      - name: Cache uNmINeD CLI
-        uses: actions/cache@v4
-        id: unmined-cache
-        with:
-          path: /opt/unmined-cli
-          key: unmined-cli-v1
-
-      - name: Install uNmINeD CLI
-        if: steps.unmined-cache.outputs.cache-hit != 'true'
-        run: |
-          curl -sS "https://unmined.net/download/unmined-cli-linux-x64-dev/" | tar -xz -C /opt
-          mv /opt/unmined-cli* /opt/unmined-cli
-
-      - name: Add uNmINeD to PATH
-        run: echo "/opt/unmined-cli" >> $GITHUB_PATH
+          key: render-v3-${{ github.run_id }}
+          restore-keys: render-v3-
 
       - name: Get Minecraft version
         id: mc-version
@@ -88,6 +72,22 @@ jobs:
             console.log('version=' + d.latest.release);
             console.log('version_url=' + v.url);
           " >> $GITHUB_OUTPUT
+
+      - name: Cache uNmINeD CLI
+        uses: actions/cache@v4
+        id: unmined-cache
+        with:
+          path: /opt/unmined-cli
+          key: unmined-cli-${{ steps.mc-version.outputs.version }}
+
+      - name: Install uNmINeD CLI
+        if: steps.unmined-cache.outputs.cache-hit != 'true'
+        run: |
+          curl -sS "https://unmined.net/download/unmined-cli-linux-x64-dev/" | tar -xz -C /opt
+          mv /opt/unmined-cli* /opt/unmined-cli
+
+      - name: Add uNmINeD to PATH
+        run: echo "/opt/unmined-cli" >> $GITHUB_PATH
 
       - name: Cache Minecraft JAR
         uses: actions/cache@v4
