@@ -17,7 +17,7 @@ export async function renderMap(worldPath: string): Promise<void> {
   ];
 
   if (config.minecraftJar) {
-    args.push("--textures=true", `--java-client-jar=${config.minecraftJar}`);
+    args.push(`--java-client-jar=${config.minecraftJar}`);
   }
 
   log.info(`Rendering with uNmINeD (${args.length} args)`);
