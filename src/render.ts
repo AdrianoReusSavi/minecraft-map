@@ -14,6 +14,7 @@ export async function renderMap(worldPath: string): Promise<void> {
     "--zoomin=4",
     "--shadows=true",
     "--background=#000000",
+    "--imageformat=Png",
   ];
 
   if (config.minecraftJar) {
