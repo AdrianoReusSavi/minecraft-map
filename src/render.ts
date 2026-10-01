@@ -11,6 +11,7 @@ export async function renderMap(worldPath: string): Promise<void> {
     "render",
     `--world=${worldPath}`,
     `--output=${config.outputPath}`,
+    "--dimension=minecraft:overworld",
     "--zoomin=4",
     "--shadows=true",
     "--background=#000000",
