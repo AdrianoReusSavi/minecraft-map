@@ -1,0 +1,25 @@
+{
+  "name": "@minecraft-map/realms",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "setup": "tsx src/setup.ts",
+    "update": "tsx src/update.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "prismarine-auth": "^2.5.0",
+    "prismarine-realms": "^1.5.0",
+    "tar": "^7.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.4"
+  },
+  "license": "MIT"
+}
